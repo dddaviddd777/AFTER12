@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AFTER 12</title>
+  <meta name="description" content="AFTER 12 · Hypnotic deep house and techno.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ COLORS I MIDES ============ */
+    :root {
+      --fons: #07070a;
+      --fons-2: #0e0e14;
+      --linia: rgba(255, 255, 255, 0.09);
+      --text: #e9e7ef;
+      --text-suau: #8f8c9c;
+      --rosa: #ff2fa8;
+      --blau: #3d5bff;
+      --daurat: #e8b36a;
+      --verd: #3ee0b0;
+      --amplada: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--fons);
+      color: var(--text);
+      font-family: "Jost", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============ MENÚ ============ */
+    .menu {
+      position: fixed; inset: 0 0 auto 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 24px;
+      background: linear-gradient(to bottom, rgba(7,7,10,.85), rgba(7,7,10,0));
+    }
+    .menu .logo { font-weight: 400; letter-spacing: .5em; font-size: .8rem; }
+    .menu nav { display: flex; gap: 22px; }
+    .menu nav a {
+      font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--text-suau); transition: color .4s;
+    }
+    .menu nav a:hover { color: var(--text); }
+
+    /* ============ GENERAL DE SECCIONS ============ */
+    section { padding: 120px 24px; }
+    .contingut { max-width: var(--amplada); margin: 0 auto; }
+    .etiqueta {
+      font-size: .7rem; letter-spacing: .45em; text-transform: uppercase;
+      color: var(--text-suau); margin-bottom: 40px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .etiqueta::after { content: ""; flex: 1; height: 1px; background: var(--linia); max-width: 120px; }
+
+    /* ============ 1. INICI ============ */
+    .inici {
+      position: relative; min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding-top: 100px; overflow: hidden;
+    }
+    /* Llums de fons que "respiren" molt lentament */
+    .llum {
+      position: absolute; border-radius: 50%; filter: blur(90px);
+      opacity: .28; pointer-events: none;
+    }
+    .llum.rosa  { width: 55vmax; height: 55vmax; background: var(--rosa); top: -20vmax; left: -18vmax; animation: deriva 26s ease-in-out infinite alternate; }
+    .llum.blau  { width: 50vmax; height: 50vmax; background: var(--blau); bottom: -22vmax; right: -16vmax; animation: deriva 32s ease-in-out infinite alternate-reverse; }
+    @keyframes deriva {
+      from { transform: translate(0, 0) scale(1); opacity: .18; }
+      to   { transform: translate(6vmax, 4vmax) scale(1.15); opacity: .32; }
+    }
+    /* Cercles concèntrics hipnòtics */
+    .anells {
+      position: absolute; top: 50%; left: 50%; width: 0; height: 0; pointer-events: none;
+    }
+    .anells span {
+      position: absolute; left: 50%; top: 50%; border: 1px solid rgba(255,255,255,.05);
+      border-radius: 50%; transform: translate(-50%, -50%);
+      animation: pols 12s ease-in-out infinite;
+    }
+    .anells span:nth-child(1) { width: 40vmin; height: 40vmin; }
+    .anells span:nth-child(2) { width: 70vmin; height: 70vmin; animation-delay: -4s; }
+    .anells span:nth-child(3) { width: 100vmin; height: 100vmin; animation-delay: -8s; }
+    @keyframes pols {
+      0%, 100% { opacity: .2; transform: translate(-50%, -50%) scale(.97); }
+      50%      { opacity: 1;  transform: translate(-50%, -50%) scale(1.02); }
+    }
+
+    .inici h1 {
+      position: relative;
+      font-weight: 200; font-size: clamp(2.6rem, 11vw, 7.5rem);
+      letter-spacing: .38em; margin-right: -.38em; /* compensa l'espai de l'última lletra */
+      line-height: 1;
+      animation: aparicio 3s ease-out both;
+    }
+    .inici .frase {
+      position: relative; margin-top: 28px; color: var(--text-suau);
+      font-size: clamp(.8rem, 2.6vw, 1rem); letter-spacing: .3em; text-transform: uppercase;
+      animation: aparicio 3s 1s ease-out both;
+    }
+    @keyframes aparicio { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: blur(0); } }
+
+    .destacat {
+      position: relative; margin-top: 70px;
+      display: flex; align-items: center; gap: 22px; text-align: left;
+      padding: 14px 26px 14px 14px;
+      border: 1px solid var(--linia); background: rgba(14,14,20,.55);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: border-color .6s;
+      animation: aparicio 3s 1.8s ease-out both;
+    }
+    .destacat:hover { border-color: rgba(255,47,168,.4); }
+    .destacat img {
+      width: 96px; height: 96px; object-fit: cover;
+      box-shadow: 0 0 40px rgba(255,47,168,.35);
+    }
+    .destacat small { display: block; font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--rosa); }
+    .destacat strong { display: block; font-weight: 400; font-size: 1.15rem; letter-spacing: .12em; margin-top: 4px; }
+    .destacat em { display: block; font-style: normal; font-size: .75rem; color: var(--text-suau); letter-spacing: .15em; margin-top: 2px; }
+
+    .avall {
+      position: absolute; bottom: 30px; left: 50%; width: 1px; height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--text-suau));
+      animation: baixa 4s ease-in-out infinite;
+    }
+    @keyframes baixa { 0%,100% { opacity: .2; transform: translateY(-6px); } 50% { opacity: .8; transform: translateY(6px); } }
+
+    /* ============ 2. BIO ============ */
+    .bio { border-top: 1px solid var(--linia); }
+    .bio .text { max-width: 680px; }
+    .bio p { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: #cfccd8; margin-bottom: 1.3em; }
+    .bio p:first-child { font-size: clamp(1.3rem, 3.2vw, 1.75rem); font-weight: 200; color: var(--text); line-height: 1.5; }
+
+    /* ============ 3. DISCOGRAFIA ============ */
+    .discografia { background: var(--fons-2); }
+    .graella {
+      display: grid; gap: 50px 28px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .disc .portada {
+      position: relative; aspect-ratio: 1; overflow: hidden; background: #000;
+    }
+    .disc .portada img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 2.5s cubic-bezier(.2,.6,.2,1), filter 1.5s;
+      filter: saturate(.9);
+    }
+    .disc:hover .portada img { transform: scale(1.04); filter: saturate(1.1); }
+    .disc h3 { font-weight: 400; font-size: 1rem; letter-spacing: .2em; text-transform: uppercase; margin-top: 18px; }
+    .disc .info { font-size: .75rem; color: var(--text-suau); letter-spacing: .2em; text-transform: uppercase; }
+    .disc .desc { margin-top: 14px; font-size: .9rem; color: #b5b2c0; line-height: 1.65; }
+    .estat {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
+      padding: 6px 10px; background: rgba(7,7,10,.75); border: 1px solid var(--linia);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .estat.verd   { color: var(--verd); border-color: rgba(62,224,176,.4); }
+    .estat.rosa   { color: var(--rosa); border-color: rgba(255,47,168,.4); }
+    .estat.daurat { color: var(--daurat); border-color: rgba(232,179,106,.4); }
+    .estat.gris   { color: var(--text-suau); }
+
+    /* Portada buida de "Shape of Nothing" */
+    .buida {
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      background: radial-gradient(circle at 50% 50%, #111118 0%, #050507 70%);
+      border: 1px solid var(--linia); text-align: center;
+    }
+    .buida .cercle {
+      display: block; width: 38%; aspect-ratio: 1; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.08);
+      animation: buit 9s ease-in-out infinite;
+    }
+    @keyframes buit { 0%,100% { transform: scale(.9); opacity: .3; } 50% { transform: scale(1.05); opacity: .9; } }
+    .buida .titol { margin-top: 26px; font-weight: 200; letter-spacing: .4em; font-size: .8rem; text-transform: uppercase; }
+    .buida .pendent { margin-top: 6px; font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: #6a6775; }
+
+    /* Bloc gran de Delusions */
+    .publicat {
+      margin-top: 90px; padding-top: 60px; border-top: 1px solid var(--linia);
+      display: grid; gap: 50px; grid-template-columns: 1fr 1fr; align-items: start;
+    }
+    .publicat .portada { aspect-ratio: 1; box-shadow: 0 0 80px rgba(40, 220, 170, .12); }
+    .publicat .portada img { width: 100%; height: 100%; object-fit: cover; }
+    .publicat h3 { font-weight: 200; font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: .25em; text-transform: uppercase; line-height: 1.2; }
+    .publicat .info { color: var(--text-suau); letter-spacing: .15em; font-size: .85rem; margin: 8px 0 28px; }
+    .temes { list-style: none; counter-reset: tema; margin-bottom: 30px; }
+    .temes li {
+      counter-increment: tema; display: flex; gap: 18px;
+      padding: 10px 0; border-bottom: 1px solid var(--linia); letter-spacing: .08em;
+    }
+    .temes li::before { content: counter(tema, decimal-leading-zero); color: var(--text-suau); font-size: .8rem; padding-top: 2px; }
+    .reproductor { grid-column: 1 / -1; }
+    .reproductor iframe { width: 100%; border: 0; border-radius: 12px; }
+
+    /* ============ BOTONS ============ */
+    .botons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .boto {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px; min-width: 170px;
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
+      transition: border-color .5s, background .5s, color .5s;
+    }
+    .boto:hover { border-color: var(--text); background: rgba(255,255,255,.05); }
+    .boto.spotify:hover { border-color: #1ed760; color: #1ed760; }
+    .boto.apple:hover   { border-color: #fa4a6a; color: #fa4a6a; }
+    .boto.youtube:hover { border-color: #ff3d3d; color: #ff3d3d; }
+    .boto.deezer:hover  { border-color: #a238ff; color: #a238ff; }
+    .boto.amazon:hover  { border-color: #25d1da; color: #25d1da; }
+    /* Botons de Delusions: graella de 2 columnes */
+    .publicat .botons { display: grid; grid-template-columns: 1fr 1fr; }
+    .publicat .boto { min-width: 0; padding: 13px 10px; }
+
+    /* ============ 4. ESCOLTA'M ============ */
+    .escolta { text-align: center; border-top: 1px solid var(--linia); }
+    .escolta .etiqueta { justify-content: center; }
+    .escolta .etiqueta::before { content: ""; flex: 1; height: 1px; background: var(--linia); max-width: 120px; }
+    .escolta h2 { font-weight: 200; font-size: clamp(1.6rem, 5vw, 2.4rem); letter-spacing: .3em; margin-right: -.3em; margin-bottom: 50px; text-transform: uppercase; }
+    .escolta .botons { justify-content: center; max-width: 760px; margin: 0 auto; }
+
+    footer {
+      padding: 50px 24px; text-align: center; color: #4d4a57;
+      font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
+      border-top: 1px solid var(--linia);
+    }
+
+    /* ============ APARICIÓ SUAU EN BAIXAR ============ */
+    .revela { opacity: 0; transform: translateY(24px); transition: opacity 1.6s ease, transform 1.6s ease; }
+    .revela.visible { opacity: 1; transform: none; }
+
+    /* ============ TAULETA ============ */
+    @media (max-width: 960px) {
+      .graella { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ============ MÒBIL ============ */
+    @media (max-width: 760px) {
+      section { padding: 90px 18px; }
+      .menu { padding: 16px 18px; }
+      .menu nav { gap: 14px; }
+      .menu nav a { font-size: .6rem; letter-spacing: .2em; }
+      .destacat { margin-top: 50px; padding: 10px 18px 10px 10px; gap: 16px; }
+      .destacat img { width: 76px; height: 76px; }
+      .publicat { grid-template-columns: 1fr; gap: 36px; margin-top: 70px; }
+      .estat { top: 10px; left: 10px; }
+      .boto { flex: 1 1 calc(50% - 6px); min-width: 0; padding: 14px 10px; letter-spacing: .2em; }
+    }
+    @media (max-width: 560px) {
+      .graella { grid-template-columns: 1fr; gap: 60px; }
+    }
+
+    /* Si la persona té les animacions desactivades al dispositiu, les respectem */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .revela { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="menu">
+    <a href="#inici" class="logo">AFTER 12</a>
+    <nav>
+      <a href="#bio">Bio</a>
+      <a href="#discografia">Music</a>
+      <a href="#escolta">Listen</a>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       1. INICI
+       ========================================================= -->
+  <section class="inici" id="inici">
+    <div class="llum rosa"></div>
+    <div class="llum blau"></div>
+    <div class="anells"><span></span><span></span><span></span></div>
+
+    <h1>AFTER 12</h1>
+    <!-- ✏️ FRASE DE L'INICI -->
+    <p class="frase">Hypnotic deep house &amp; techno</p>
+
+    <a href="#discografia" class="destacat">
+      <img src="echoes-into-light.jpg" alt="Echoes into Light cover">
+      <span>
+        <small>Next release</small>
+        <strong>Echoes into Light</strong>
+        <em>Coming soon · 2026</em>
+      </span>
+    </a>
+
+    <div class="avall"></div>
+  </section>
+
+  <!-- =========================================================
+       2. BIO
+       ========================================================= -->
+  <section class="bio" id="bio">
+    <div class="contingut">
+      <p class="etiqueta revela">Bio</p>
+      <div class="text revela">
+        <!-- ✏️ BIO -->
+        <p>AFTER 12 is what remains when the lights go out and only the rhythm is left.</p>
+        <p>It began in 2018 with a laptop, FL Studio and almost no idea of the rules. The result was <em>Delusions</em>, an experimental debut driven by pure curiosity and the thrill of discovering new sounds.</p>
+        <p>Years later, AFTER 12 returned with state-of-the-art tools and renewed creative direction. Blending deep house, hypnotic grooves, captivating vocals and thought-provoking lyrics, the project explores the space between darkness and light, introspection and euphoria.
+
+</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. DISCOGRAFIA (de més antic a més nou)
+       ========================================================= -->
+  <section class="discografia" id="discografia">
+    <div class="contingut">
+      <p class="etiqueta revela">Discography</p>
+
+      <div class="graella">
+        <article class="disc revela">
+          <div class="portada">
+            <span class="estat verd">Out now</span>
+            <img src="delusions.jpg" alt="Delusions cover" loading="lazy">
+          </div>
+          <h3>Delusions</h3>
+          <p class="info">Album · 2018</p>
+          <p class="desc">Where it all began. A young producer with a laptop experimenting with new sounds before knowing any rules. Raw, curious and experimental.</p>
+        </article>
+
+        <article class="disc revela">
+          <div class="portada">
+            <span class="estat rosa">Coming soon</span>
+            <img src="echoes-into-light.jpg" alt="Echoes into Light cover" loading="lazy">
+          </div>
+          <h3>Echoes into Light</h3>
+          <p class="info">Album · 2026</p>
+          <p class="desc">The return. A journey through captivating vocals, deep atmospheres and hypnotic grooves, where darkness gradually gives way to light.</p>
+        </article>
+
+        <article class="disc revela">
+          <div class="portada">
+            <span class="estat daurat">Coming 2027</span>
+            <img src="new-mirage.jpg" alt="New Mirage cover" loading="lazy">
+          </div>
+          <h3>New Mirage</h3>
+          <p class="info">Album · 2027</p>
+          <p class="desc">A turn towards the light. Synthwave and retro-futuristic sounds meet uplifting rhythms and melodic vocals. An exploration of hope, possibility and new horizons.</p>
+        </article>
+
+        <article class="disc revela">
+          <!-- Quan tinguis la portada, canvia tot aquest bloc <div class="portada buida">…</div> per:
+               <div class="portada"><span class="estat gris">2027</span><img src="shape-of-nothing.jpg" alt="Shape of Nothing cover"></div> -->
+          <div class="portada buida">
+            <span class="cercle"></span>
+            <span class="titol">Shape of Nothing</span>
+            <span class="pendent">Coming soon</span>
+          </div>
+          <h3>Shape of Nothing</h3>
+          <p class="info">Album · TBD</p>
+          <p class="desc">A descent into the underground. Dark, hypnotic and introspective techno exploring the depths of inner chaos and contradiction. Nothing is quite what it seems.</p>
+        </article>
+      </div>
+
+      <!-- Delusions en detall -->
+      <div class="publicat revela">
+        <div class="portada">
+          <img src="delusions.jpg" alt="Delusions cover" loading="lazy">
+        </div>
+        <div>
+          <h3>Delusions</h3>
+          <p class="info">Album · 2018 · 7 tracks</p>
+          <ol class="temes">
+            <li>Prelude</li>
+            <li>Delusions</li>
+            <li>Phaethon</li>
+            <li>Quadrifoglio</li>
+            <li>Faithly</li>
+            <li>Rise of Cthulhu</li>
+            <li>Stellar</li>
+          </ol>
+          <div class="botons">
+            <a class="boto spotify" href="https://open.spotify.com/album/7cl0fVPv31w3obBWLFLZCB" target="_blank" rel="noopener">Spotify</a>
+            <a class="boto apple" href="https://music.apple.com/us/album/delusions/1438131302" target="_blank" rel="noopener">Apple Music</a>
+            <a class="boto youtube" href="https://music.youtube.com/playlist?list=OLAK5uy_lFQ6ia7tMm_XyqAHgw97igcNnKSEkiEGg" target="_blank" rel="noopener">YouTube Music</a>
+            <a class="boto deezer" href="https://www.deezer.com/album/74825672" target="_blank" rel="noopener">Deezer</a>
+            <a class="boto amazon" href="https://music.amazon.com/albums/B07K23R5SH" target="_blank" rel="noopener">Amazon Music</a>
+            <a class="boto" href="https://tidal.com/album/96371466" target="_blank" rel="noopener">Tidal</a>
+          </div>
+        </div>
+        <div class="reproductor">
+          <iframe src="https://open.spotify.com/embed/album/7cl0fVPv31w3obBWLFLZCB?utm_source=generator&theme=0"
+                  height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy" title="Delusions on Spotify"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. ESCOLTA'M A
+       ========================================================= -->
+  <section class="escolta" id="escolta">
+    <div class="contingut">
+      <p class="etiqueta revela">Listen on</p>
+      <h2 class="revela">AFTER 12</h2>
+
+      <div class="botons revela">
+        <a class="boto spotify" href="https://open.spotify.com/artist/6tX7H9lWKYPhvaBl6kM4KD" target="_blank" rel="noopener">Spotify</a>
+        <a class="boto apple" href="https://music.apple.com/us/artist/after-12/1438131303" target="_blank" rel="noopener">Apple Music</a>
+        <a class="boto youtube" href="https://music.youtube.com/channel/UCrVLeIgmuLKE3kRn7rvZ-6w" target="_blank" rel="noopener">YouTube Music</a>
+        <a class="boto deezer" href="https://www.deezer.com/artist/416339" target="_blank" rel="noopener">Deezer</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© AFTER 12</footer>
+
+  <script>
+    // Fa aparèixer suaument cada bloc quan arriba a la pantalla
+    const blocs = document.querySelectorAll('.revela');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entrades) => {
+        entrades.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      blocs.forEach((b) => obs.observe(b));
+    } else {
+      blocs.forEach((b) => b.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
