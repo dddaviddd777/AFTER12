@@ -1,0 +1,16 @@
+{
+  "name": "AFTER 12",
+  "short_name": "AFTER 12",
+  "description": "Hypnotic deep house and techno.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07070a",
+  "theme_color": "#07070a",
+  "icons": [
+    { "src": "icona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
